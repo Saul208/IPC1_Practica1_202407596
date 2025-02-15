@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class SopaDeLetras {
 
-    private static final int MAX_PALABRAS = 50; // Máximo de palabras que se pueden almacenar
-    private static String[] palabras = new String[MAX_PALABRAS]; // Arreglo para almacenar las palabras
-    private static int cantidadPalabras = 0; // Contador de palabras ingresadas
+    private static final int MAX_PALABRAS = 50; 
+    private static String[] palabras = new String[MAX_PALABRAS]; 
+    private static int cantidadPalabras = 0; 
     private static Scanner scanner = new Scanner(System.in);
     private static String nombreUsuario;
     private static char[][] tablero;
-    private static int tamañoTablero = 15; // Por defecto, sección A (17x17)
+    private static int tamañoTablero = 15; 
 
     public static void main(String[] args) {
         mostrarMenuPrincipal();
@@ -26,7 +26,7 @@ public class SopaDeLetras {
             System.out.println("5. Salir");
             System.out.print("Seleccione una opción: ");
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
@@ -62,8 +62,7 @@ public class SopaDeLetras {
             System.out.println("3. Terminar Partida");
             System.out.print("Seleccione una opción: ");
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
-
+            scanner.nextLine(); 
             switch (opcion) {
                 case 1:
                     menuPalabras();
@@ -90,7 +89,7 @@ public class SopaDeLetras {
             System.out.println("5. Salir");
             System.out.print("Seleccione una opción: ");
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
@@ -117,7 +116,7 @@ public class SopaDeLetras {
     private static void insertarPalabras() {
         System.out.print("Ingrese el número de palabras que desea insertar: ");
         int cantidad = scanner.nextInt();
-        scanner.nextLine(); // Limpiar el buffer
+        scanner.nextLine();
 
         if (cantidadPalabras + cantidad > MAX_PALABRAS) {
             System.out.println("No se pueden agregar más palabras. Límite alcanzado.");
@@ -133,7 +132,7 @@ public class SopaDeLetras {
                 System.out.println("Palabra agregada: " + palabra);
             } else { 
                 System.out.println("La palabra no cumple con la longitud permitida. Intente de nuevo.");
-                i--; // Reintentar la misma posición1
+                i--; 
                 
             }
         }
@@ -172,7 +171,7 @@ public class SopaDeLetras {
         int indice = buscarPalabra(palabra);
 
         if (indice != -1) {
-            // Eliminar la palabra moviendo las palabras restantes
+            
             for (int i = indice; i < cantidadPalabras - 1; i++) {
                 palabras[i] = palabras[i + 1];
             }
@@ -200,12 +199,12 @@ public class SopaDeLetras {
                 return i;
             }
         }
-        return -1; // Palabra no encontrada
+        return -1; 
     }
 
     private static boolean validarLongitudPalabra(String palabra) {
         int longitud = palabra.length();
-        return (longitud >= 3 && longitud <= 8); // Ajustar según la sección
+        return (longitud >= 3 && longitud <= 8); 
     }
 
     private static void jugar() {
@@ -217,19 +216,19 @@ public class SopaDeLetras {
         generarTablero();
         mostrarTablero();
 
-        // Aquí puedes agregar la lógica para que el usuario busque las palabras
+      
     }
 
     private static void generarTablero() {
         tablero = new char[tamañoTablero][tamañoTablero];
-        // Inicializar el tablero con letras aleatorias
+        
         for (int i = 0; i < tamañoTablero; i++) {
             for (int j = 0; j < tamañoTablero; j++) {
-                tablero[i][j] = (char) ('A' + Math.random() * 26); // Letras aleatorias de A-Z
+                tablero[i][j] = (char) ('A' + Math.random() * 26); 
             }
         }
 
-        // Aquí puedes agregar la lógica para colocar las palabras en el tablero
+        
     }
 
     private static void mostrarTablero() {
@@ -243,12 +242,12 @@ public class SopaDeLetras {
 
     private static void mostrarHistorial() {
         System.out.println("=== HISTORIAL DE PARTIDAS ===");
-        // Aquí puedes agregar la lógica para mostrar el historial de partidas
+       
     }
 
     private static void mostrarPuntuacionesAltas() {
         System.out.println("=== PUNTUACIONES MÁS ALTAS ===");
-        // Aquí puedes agregar la lógica para mostrar las puntuaciones más altas
+        
     }
 
     private static void mostrarInformacionEstudiante() {
